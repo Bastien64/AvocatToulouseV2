@@ -176,6 +176,8 @@
         .team-card h3 { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
         .team-card .subtitle { color: var(--text-muted); font-weight: 600; margin-bottom: 1rem; }
         .team-card .bio { color: hsla(15,25%,20%,0.8); line-height: 1.75; margin-bottom: 1.5rem; font-size: 0.9375rem; }
+        .team-card .bio + .bio { margin-top: 0.75rem; margin-bottom: 0; }
+        .team-card .bio:last-of-type { margin-bottom: 1.5rem; }
         .team-contact { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem; color: var(--text-muted); }
         .team-contact-item { display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
         .team-contact-item svg { color: var(--primary); stroke: var(--primary); }
@@ -508,7 +510,9 @@
                 </div>
                 <h3>Maître Maylis Vincent</h3>
                 <p class="subtitle">Avocate</p>
-                <p class="bio">Titulaire d'un master 1 en droit privé et d'un master 2 « Contrat et responsabilité des professionnels », Maître Maylis VINCENT a prêté serment en 2018. Maître VINCENT a réalisé au cours de ses études divers stages en Espagne (Madrid, Barcelone) ou encore, au Canada (Calgary), étant précisé qu'elle maîtrise parfaitement l'anglais et l'espagnol. Elle a travaillé avec Maître Valérie AMIEL, dès 2018 en qualité de stagiaire élève-avocat, puis en qualité de collaboratrice dès le mois de janvier 2019 avant de s'associer avec elle en janvier 2023.</p>
+                <p class="bio">Titulaire d'un master 1 en droit privé et d'un master 2 « Contrat et responsabilité des professionnels », Maître Maylis VINCENT a prêté serment en 2018.</p>
+                <p class="bio">Maître VINCENT a réalisé au cours de ses études divers stages en Espagne (Madrid, Barcelone) ou encore, au Canada (Calgary), étant précisé qu'elle maîtrise parfaitement l'anglais et l'espagnol.</p>
+                <p class="bio">Elle a travaillé avec Maître Valérie AMIEL, dès 2018 en qualité de stagiaire élève-avocat, puis en qualité de collaboratrice dès le mois de janvier 2019 avant de s'associer avec elle en janvier 2023.</p>
                 <div class="team-contact">
                     <div class="team-contact-item">
                         <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.36 6.36l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -523,7 +527,9 @@
                 </div>
                 <h3>Maître Valérie Amiel</h3>
                 <p class="subtitle">Avocate</p>
-                <p class="bio">Titulaire maîtrise en droit privé, d'une maîtrise en droit public ainsi que d'un DESS « Droit de la santé », Maître Valérie AMIEL a prêté serment en 2005. À l'issue de 4 années de collaboration dans deux cabinets différents, elle s'est installée pour exercer à titre individuel en 2009. Après en avoir travaillé pendant 5 ans avec Maître Maylis VINCENT, avec laquelle elle partage les mêmes valeurs tant professionnelles qu'humaines, Maître Valérie AMIEL s'associera avec elle en janvier 2023.</p>
+                <p class="bio">Titulaire maîtrise en droit privé, d'une maîtrise en droit public ainsi que d'un DESS « Droit de la santé », Maître Valérie AMIEL a prêté serment en 2005.</p>
+                <p class="bio">À l'issue de 4 années de collaboration dans deux cabinets différents, elle s'est installée pour exercer à titre individuel en 2009.</p>
+                <p class="bio">Après en avoir travaillé pendant 5 ans avec Maître Maylis VINCENT, avec laquelle elle partage les mêmes valeurs tant professionnelles qu'humaines, Maître Valérie AMIEL s'associera avec elle en janvier 2023.</p>
                 <div class="team-contact">
                     <div class="team-contact-item">
                         <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.36 6.36l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
