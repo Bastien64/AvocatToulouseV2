@@ -1,0 +1,766 @@
+<?php $year = date('Y'); ?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avocat Droit de la Famille Toulouse | Expertise & Conseils - Amiel & Vincent</title>
+    <meta name="description" content="Accompagnement rigoureux en Divorce, Garde d'enfants et Contrats. Contactez-nous pour une consultation rapide.">
+    <meta name="author" content="Cabinet Amiel Vincent Avocats">
+    <meta property="og:title" content="Avocat Droit de la Famille Toulouse | Expertise & Conseils - Amiel & Vincent">
+    <meta property="og:description" content="Accompagnement rigoureux en Divorce, Garde d'enfants et Contrats à Toulouse.">
+    <meta property="og:url" content="https://amiel-vincent-avocats.fr/">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== RESET ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: hsl(15,25%,20%); background: #fff; line-height: 1.6; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ===== VARIABLES ===== */
+        :root {
+            --primary:        hsl(9, 59%, 56%);
+            --primary-dark:   hsl(9, 69%, 46%);
+            --primary-10:     hsla(9, 59%, 56%, 0.10);
+            --primary-20:     hsla(9, 59%, 56%, 0.20);
+            --text:           hsl(15, 25%, 20%);
+            --text-muted:     hsl(215, 16.3%, 46.9%);
+            --border:         hsl(214.3, 31.8%, 91.4%);
+            --shadow-elegant: 0 10px 40px -10px hsla(9, 59%, 56%, 0.15);
+            --shadow-card:    0 4px 20px -4px  hsla(9, 59%, 56%, 0.10);
+            --radius:         0.5rem;
+            --section-alt:    linear-gradient(180deg, #fff 0%, hsl(20,40%,98%) 100%);
+        }
+
+        /* ===== LAYOUT ===== */
+        .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 5rem 0; }
+        .section-alt { background: var(--section-alt); }
+
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: clamp(1.75rem, 3vw, 3rem); font-weight: 700; color: var(--primary); margin-bottom: 1rem; }
+        .section-header p { font-size: 1.125rem; color: var(--text-muted); max-width: 44rem; margin: 0 auto; line-height: 1.75; }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.875rem 2rem; border-radius: var(--radius);
+            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem;
+            cursor: pointer; border: none; transition: all 0.3s ease; text-decoration: none;
+        }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-dark); transform: scale(1.02); }
+        .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: #fff; transform: scale(1.02); }
+
+        /* ===== CARDS ===== */
+        .card {
+            background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 1.5rem; box-shadow: var(--shadow-card); transition: all 0.3s ease;
+        }
+        .card:hover { box-shadow: var(--shadow-elegant); transform: translateY(-2px); }
+        .card-icon {
+            width: 3.5rem; height: 3.5rem; background: var(--primary-10);
+            border-radius: var(--radius); display: flex; align-items: center;
+            justify-content: center; margin-bottom: 1rem; flex-shrink: 0;
+        }
+        .card-icon svg { width: 1.75rem; height: 1.75rem; color: var(--primary); stroke: var(--primary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .card h3 { font-size: 1.125rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem; }
+        .card p { color: var(--text-muted); line-height: 1.65; }
+
+        /* ===== HEADER ===== */
+        #header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            transition: all 0.3s ease;
+        }
+        #header.scrolled {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-elegant);
+        }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 5rem; }
+        .header-logo { font-family: 'Playfair Display', serif; font-size: 1.625rem; font-weight: 700; color: var(--primary); cursor: pointer; }
+        .desktop-nav { display: flex; align-items: center; gap: 2rem; }
+        .desktop-nav a { color: hsl(15,25%,20%); font-weight: 500; cursor: pointer; transition: color 0.2s; }
+        .desktop-nav a:hover { color: var(--primary); }
+        .menu-toggle {
+            display: none; background: none; border: none; cursor: pointer;
+            color: hsl(15,25%,20%); padding: 0.25rem;
+        }
+        .mobile-nav { display: none; padding: 1rem 0; border-top: 1px solid var(--border); }
+        .mobile-nav.open { display: block; }
+        .mobile-nav a { display: block; padding: 0.75rem 0; color: hsl(15,25%,20%); font-weight: 500; cursor: pointer; }
+        .mobile-nav a:hover { color: var(--primary); }
+        .mobile-nav .btn { width: 100%; margin-top: 1rem; justify-content: center; }
+
+        /* ===== HERO ===== */
+        #hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #fff 0%, #fff 70%, hsla(9,59%,56%,0.05) 100%);
+            padding: 8rem 0 4rem; position: relative;
+        }
+        .hero-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 3rem; align-items: center; max-width: 1200px; margin: 0 auto;
+        }
+        .hero-content h1 {
+            font-size: clamp(2rem, 4vw, 3.75rem); font-weight: 700;
+            color: var(--primary); line-height: 1.15; margin-bottom: 1.5rem;
+        }
+        .hero-content p { font-size: 1.25rem; color: hsla(15,25%,20%,0.8); margin-bottom: 2rem; line-height: 1.75; }
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .hero-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .photo-card { position: relative; border-radius: 1rem; overflow: hidden; box-shadow: var(--shadow-card); aspect-ratio: 3/4; }
+        .photo-card img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.3s ease; }
+        .photo-card:hover img { transform: scale(1.02); }
+        .photo-card::before {
+            content: ''; position: absolute; inset: -0.5rem;
+            background: linear-gradient(135deg, var(--primary-20), var(--primary-10));
+            border-radius: 1.25rem; filter: blur(1.5rem); z-index: -1;
+        }
+        .scroll-indicator {
+            position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+            width: 1.5rem; height: 2.5rem; border: 2px solid hsla(9,59%,56%,0.5);
+            border-radius: 1rem; display: flex; align-items: flex-start; justify-content: center;
+            padding: 0.5rem; animation: bounce 1.5s infinite;
+        }
+        .scroll-dot { width: 0.25rem; height: 0.75rem; background: hsla(9,59%,56%,0.5); border-radius: 1rem; animation: pulse-dot 1.5s infinite; }
+        @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-6px)} }
+        @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+        /* ===== EXPERTISES ===== */
+        .expertises-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 72rem; margin: 0 auto; }
+
+        /* ===== NOS MISSIONS (ABOUT) ===== */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; max-width: 72rem; margin: 0 auto; }
+        .about-text h2 { font-size: clamp(1.75rem, 3vw, 3rem); font-weight: 700; color: var(--primary); margin-bottom: 2rem; }
+        .missions-list { display: flex; flex-direction: column; gap: 1rem; }
+        .mission-card {
+            display: flex; align-items: flex-start; gap: 1rem; padding: 1rem;
+            background: hsla(0,0%,100%,0.5); border: 1px solid var(--border);
+            border-left: 4px solid var(--primary); border-radius: var(--radius);
+            transition: background 0.2s;
+        }
+        .mission-card:hover { background: #fff; }
+        .mission-card .card-icon { margin-bottom: 0; }
+        .mission-content h3 { font-size: 1rem; font-weight: 600; color: var(--primary); margin-bottom: 0.25rem; }
+        .mission-content p { color: var(--text-muted); font-size: 0.9375rem; line-height: 1.65; }
+        .about-image { position: relative; }
+        .about-image::before {
+            content: ''; position: absolute; inset: -1rem;
+            background: linear-gradient(135deg, var(--primary-20), var(--primary-10));
+            border-radius: var(--radius); filter: blur(2rem); z-index: 0;
+        }
+        .about-image img { position: relative; z-index: 1; width: 100%; height: 500px; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow-elegant); }
+
+        /* ===== TEAM ===== */
+        #equipe { background: linear-gradient(135deg, #fff 0%, hsla(9,59%,56%,0.05) 100%); }
+        .team-title { display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
+        .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 56rem; margin: 0 auto; }
+        .team-card { padding: 2rem; text-align: center; }
+        .team-avatar {
+            width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden;
+            border: 4px solid var(--primary-20); margin: 0 auto 1.5rem; cursor: default;
+        }
+        .team-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s ease; }
+        .team-avatar:hover img { transform: scale(1.05); }
+        .team-card h3 { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+        .team-card .subtitle { color: var(--text-muted); font-weight: 600; margin-bottom: 1rem; }
+        .team-card .bio { color: hsla(15,25%,20%,0.8); line-height: 1.75; margin-bottom: 1.5rem; font-size: 0.9375rem; }
+        .team-contact { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem; color: var(--text-muted); }
+        .team-contact-item { display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .team-contact-item svg { color: var(--primary); stroke: var(--primary); }
+
+        /* ===== HONORAIRES ACCORDION ===== */
+        #honoraires { background: var(--section-alt); }
+        .accordion-list { display: flex; flex-direction: column; gap: 0.75rem; }
+        .accordion-item { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+        .accordion-trigger {
+            width: 100%; padding: 1rem 1.25rem; background: #fff; border: none;
+            cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+            font-family: 'Inter', sans-serif; font-size: 0.9375rem; color: var(--primary);
+            font-weight: 500; text-align: left; transition: background 0.2s; gap: 1rem;
+        }
+        .accordion-trigger:hover { background: var(--primary-10); }
+        .accordion-trigger em { font-style: italic; }
+        .accordion-chevron { flex-shrink: 0; width: 1.125rem; height: 1.125rem; stroke: var(--primary); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.3s ease; }
+        .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+        .accordion-content { display: none; padding: 0 1.25rem 1.25rem 1.25rem; font-size: 0.9375rem; color: var(--text-muted); line-height: 1.75; }
+        .accordion-item.open .accordion-content { display: block; }
+
+        /* ===== CONTACT ===== */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 72rem; margin: 0 auto; }
+        .contact-form-card { padding: 2rem; }
+        .form-toggle { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+        .form-toggle button {
+            flex: 1; padding: 0.75rem 1rem; border-radius: var(--radius);
+            cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.9rem;
+            line-height: 1.4; transition: all 0.2s; text-align: center;
+        }
+        .form-toggle button.active   { background: var(--primary); color: #fff; border: 1px solid var(--primary); }
+        .form-toggle button.inactive { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+        .form-toggle button.inactive:hover { background: var(--primary-10); }
+        .contact-form { display: none; flex-direction: column; gap: 1rem; }
+        .contact-form.active { display: flex; }
+        .contact-form label { font-size: 0.875rem; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; display: block; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 0.75rem; border: 1px solid var(--border);
+            border-radius: var(--radius); font-family: 'Inter', sans-serif;
+            font-size: 0.9rem; color: var(--text); transition: border-color 0.2s; resize: vertical;
+        }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary); }
+        .btn-submit {
+            width: 100%; padding: 0.875rem; background: var(--primary); color: #fff;
+            border: none; border-radius: var(--radius); font-family: 'Inter', sans-serif;
+            font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s;
+        }
+        .btn-submit:hover { background: var(--primary-dark); }
+        .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+        .info-card { display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem; }
+        .info-card .card-icon { margin-bottom: 0; }
+        .info-card h4 { font-size: 1rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem; }
+        .info-card p { color: var(--text-muted); line-height: 1.6; }
+
+        /* ===== FOOTER ===== */
+        footer { background: var(--primary); color: #fff; padding: 3rem 0; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+        .footer-brand { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+        .footer-brand h3 { font-size: 1.25rem; font-weight: 700; }
+        .footer-desc { color: rgba(255,255,255,0.8); font-size: 0.9375rem; }
+        .footer-col h4 { font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; }
+        .footer-col ul { display: flex; flex-direction: column; gap: 0.5rem; color: rgba(255,255,255,0.8); }
+        .footer-col ul a { cursor: pointer; transition: color 0.2s; }
+        .footer-col ul a:hover { color: rgba(255,255,255,0.6); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.6); font-size: 0.875rem; }
+        .footer-bottom a { color: rgba(255,255,255,0.8); transition: color 0.2s; }
+        .footer-bottom a:hover { color: #fff; }
+        .footer-bottom p + p { margin-top: 0.5rem; }
+
+        /* ===== INLINE SVG ICON SIZES ===== */
+        .icon-sm svg { width: 1rem; height: 1rem; }
+        .footer-brand svg { width: 1.5rem; height: 1.5rem; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+        .section-header svg, .team-title svg { width: 2rem; height: 2rem; stroke: var(--primary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: inline-block; vertical-align: middle; }
+        .team-contact-item svg { width: 1rem; height: 1rem; stroke: var(--primary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+        .hero-buttons svg { width: 1.25rem; height: 1.25rem; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .expertises-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; }
+            .menu-toggle { display: block; }
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-content { order: 2; text-align: center; }
+            .hero-buttons { justify-content: center; }
+            .hero-photos { order: 1; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-image { display: none; }
+            .team-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .expertises-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .hero-buttons { flex-direction: column; }
+            .hero-buttons .btn { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="header">
+    <div class="container">
+        <div class="header-inner">
+            <div class="header-logo" onclick="goTo('hero')">Amiel Vincent</div>
+
+            <nav class="desktop-nav">
+                <a onclick="goTo('hero')">Accueil</a>
+                <a onclick="goTo('about')">Nos Missions</a>
+                <a onclick="goTo('expertises')">Notre Cabinet</a>
+                <a onclick="goTo('equipe')">Équipe</a>
+                <a onclick="goTo('honoraires')">Nos Honoraires</a>
+                <a onclick="goTo('contact')" class="btn btn-primary" style="padding:0.6rem 1.25rem;font-size:0.9rem;">Nous contacter</a>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">
+                <svg id="iconMenu" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+                <svg id="iconClose" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+
+        <nav class="mobile-nav" id="mobileNav">
+            <a onclick="goTo('hero')">Accueil</a>
+            <a onclick="goTo('about')">Nos Missions</a>
+            <a onclick="goTo('expertises')">Notre Cabinet</a>
+            <a onclick="goTo('equipe')">Équipe</a>
+            <a onclick="goTo('honoraires')">Nos Honoraires</a>
+            <a onclick="goTo('contact')" class="btn btn-primary">Nous contacter</a>
+        </nav>
+    </div>
+</header>
+
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+    <div class="container">
+        <div class="hero-grid">
+
+            <div class="hero-content">
+                <h1>Cabinet d'Avocats sur Toulouse</h1>
+                <p>Défense, Conseil et Accompagnement juridique pour particuliers et professionnels</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="goTo('contact')">
+                        Prendre rendez-vous
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </button>
+                    <button class="btn btn-outline" onclick="goTo('expertises')">
+                        Nos expertises
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-photos">
+                <div class="photo-card">
+                    <img src="../New/src/assets/lawyer-1.webp" alt="Me. Maylis Vincent">
+                </div>
+                <div class="photo-card">
+                    <img src="../New/src/assets/lawyer-2.webp" alt="Me. Valérie Amiel">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <div class="scroll-dot"></div>
+    </div>
+</section>
+
+
+<!-- ===== EXPERTISES (NOTRE CABINET) ===== -->
+<section id="expertises" class="section-alt">
+    <div class="container">
+        <div class="section-header">
+            <h2>Nos Domaines de Compétence</h2>
+            <p>Particulier ou professionnel, demandeur ou défendeur, auteur présumé ou victime d'une infraction, en première instance ou en appel, si vous rencontrez une difficulté, nous vous assisterons en qualité de techniciennes du droit dans divers domaines :</p>
+        </div>
+
+        <div class="expertises-grid">
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Divorce/séparation de concubins ou de partenaires de pacs</h3>
+                <p>Divorce par consentement mutuel, divorce à l'amiable, divorce judiciaire, pension alimentaire, garde des enfants, contribution à l'entretien à l'éducation des enfants, liquidation de régime matrimonial ou d'indivision (partage des biens).</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <h3>Enfants</h3>
+                <p>Assistance éducative devant le juge des enfants, assistance des enfants dans le cadre de procédures de divorce et hors divorce, filiation, contestation de paternité, adoption simple et plénière, droit de visite et d'hébergement des grands parents.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+                </div>
+                <h3>Majeurs protégés</h3>
+                <p>Tutelle, curatelle, sauvegarde de justice, habilitation familiale.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <h3>Succession</h3>
+                <p>Indivision successorale, partage amiable et judiciaire, assurance vie, testament.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>Droit des contrats</h3>
+                <p>&nbsp;</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <h3>Droit immobilier</h3>
+                <p>Litige de construction, achèvement des travaux, désordres, garanties décennale et biennale, vices cachés, loyers impayés, expulsion, troubles du voisinage, haies et plantations, bornage, empiètement.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Droit de la consommation</h3>
+                <p>Véhicule défaillant, prêt à la consommation, crédit, commande internet, surendettement.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Droit pénal</h3>
+                <p>Garde à vue, audition libre, instruction, procédure contraventionnelle devant le tribunal de police, procédure délictuelle devant le tribunal correctionnel, procédure criminelle devant la cour d'assises, demande d'effacement du bulletin numéro 2 du casier judiciaire, demande d'effacement du fichier du traitement des antécédents judiciaires.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                </div>
+                <h3>Droit administratif</h3>
+                <p>Droit de la fonction publique, droit routier.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== NOS MISSIONS (ABOUT) ===== -->
+<section id="about">
+    <div class="container">
+        <div class="about-grid">
+
+            <div class="about-text">
+                <h2>Nos Missions</h2>
+                <div class="missions-list">
+
+                    <div class="mission-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div class="mission-content">
+                            <h3>Vous défendre</h3>
+                            <p>La défense est le cœur du métier d'Avocat. Chaque personne a droit à une défense, quelque soit la difficulté qu'elle rencontre. Parce que nous intervenons à un moment particulier de votre vie, le Cabinet a à cœur d'être à l'écoute afin de protéger au mieux vos intérêts.</p>
+                        </div>
+                    </div>
+
+                    <div class="mission-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        </div>
+                        <div class="mission-content">
+                            <h3>Vous conseiller</h3>
+                            <p>Le Droit est une matière complexe et en constante mutation. La loi et la jurisprudence se modulent au gré du temps et des évolutions sociétales. Chaque dossier comporte son lot d'interrogations juridiques, que vous nous consultiez pour un conseil, une tentative de règlement amiable ou une procédure. Le Cabinet saura vous conseiller sur la stratégie à mettre en place.</p>
+                        </div>
+                    </div>
+
+                    <div class="mission-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </div>
+                        <div class="mission-content">
+                            <h3>Vous accompagner</h3>
+                            <p>Avocat : du latin advocatus, de advocare : « appeler auprès de » L'essence de notre métier est de porter votre voix, avec réactivité, que ce soit dans prévention du contentieux par la rédaction de mise en demeure et de protocole d'accord ou lors d'une conciliation. Dans le cadre d'une procédure, le Cabinet vous apportera son expertise afin de vous assister ou de vous représenter devant les Juridictions par la rédaction d'actes juridiques ou par la plaidoirie.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="about-image">
+                <img src="../New/src/assets/justice-abstract.jpg" alt="Justice et équité">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== ÉQUIPE ===== -->
+<section id="equipe">
+    <div class="container">
+        <div class="section-header">
+            <div class="team-title">
+                <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <h2>Notre Équipe</h2>
+            </div>
+            <p>Des professionnelles à votre écoute pour vous accompagner dans vos démarches juridiques</p>
+        </div>
+
+        <div class="team-grid">
+
+            <div class="card team-card">
+                <div class="team-avatar">
+                    <img src="../New/src/assets/lawyer-1.webp" alt="Maître Maylis Vincent">
+                </div>
+                <h3>Maître Maylis Vincent</h3>
+                <p class="subtitle">Avocate</p>
+                <p class="bio">Titulaire d'un master 1 en droit privé et d'un master 2 « Contrat et responsabilité des professionnels », Maître Maylis VINCENT a prêté serment en 2018. Maître VINCENT a réalisé au cours de ses études divers stages en Espagne (Madrid, Barcelone) ou encore, au Canada (Calgary), étant précisé qu'elle maîtrise parfaitement l'anglais et l'espagnol. Elle a travaillé avec Maître Valérie AMIEL, dès 2018 en qualité de stagiaire élève-avocat, puis en qualité de collaboratrice dès le mois de janvier 2019 avant de s'associer avec elle en janvier 2023.</p>
+                <div class="team-contact">
+                    <div class="team-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.36 6.36l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>05 61 25 34 91</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card team-card">
+                <div class="team-avatar">
+                    <img src="../New/src/assets/lawyer-2.webp" alt="Maître Valérie Amiel">
+                </div>
+                <h3>Maître Valérie Amiel</h3>
+                <p class="subtitle">Avocate</p>
+                <p class="bio">Titulaire maîtrise en droit privé, d'une maîtrise en droit public ainsi que d'un DESS « Droit de la santé », Maître Valérie AMIEL a prêté serment en 2005. À l'issue de 4 années de collaboration dans deux cabinets différents, elle s'est installée pour exercer à titre individuel en 2009. Après en avoir travaillé pendant 5 ans avec Maître Maylis VINCENT, avec laquelle elle partage les mêmes valeurs tant professionnelles qu'humaines, Maître Valérie AMIEL s'associera avec elle en janvier 2023.</p>
+                <div class="team-contact">
+                    <div class="team-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.36 6.36l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>05 61 25 34 91</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== NOS HONORAIRES ===== -->
+<section id="honoraires">
+    <div class="container">
+        <div class="about-grid">
+
+            <div class="about-text">
+                <h2>Nos Honoraires</h2>
+                <div class="accordion-list" style="margin-top:2rem;">
+
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                            <em>La détermination des honoraires</em>
+                            <svg class="accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Dès le premier entretien, nous vous informerons du montant des honoraires qui vous seront facturés en totale transparence et nous établirons une convention d'honoraires afin que vous soyez parfaitement informés du coût total de nos diligences dans le cadre d'une relation de confiance.<br><br>
+                            Les honoraires seront établis en fonction principalement du type de procédure mais également en fonction de la complexité du dossier, de l'urgence, du nombre d'intervenants, etc.<br><br>
+                            De manière habituelle, nous travaillons dans le cadre d'un forfait.<br><br>
+                            Dans certains cas, ce forfait peut être assorti d'un honoraire de résultat, c'est-à-dire un honoraire complémentaire, correspondant à un pourcentage des sommes que le cabinet vous aura permis d'obtenir et qui ne sera facturé que lorsque vous aurez effectivement perçu ces sommes.<br><br>
+                            A titre informatif, selon les dispositions de l'article 10 - Loi n° 71-1130 du 31 décembre 1971 portant réforme de certaines professions judiciaires et juridiques :<br><br>
+                            « La tarification de la postulation et des actes de procédure est régie par les dispositions sur la procédure civile. Les honoraires de consultation, d'assistance, de conseil, de rédaction d'actes juridiques sous seing privé et de plaidoirie sont fixés en accord avec le client.<br><br>
+                            A défaut de convention entre l'avocat et son client, l'honoraire est fixé selon les usages, en fonction de la situation de fortune du client, de la difficulté de l'affaire, des frais exposés par l'avocat, de sa notoriété et des diligences de celui-ci.<br><br>
+                            Toute fixation d'honoraires, qui ne le serait qu'en fonction du résultat judiciaire, est interdite. Est licite la convention qui, outre la rémunération des prestations effectuées, prévoit la fixation d'un honoraire complémentaire en fonction du résultat obtenu ou du service rendu.<br><br>
+                            Dans le mandat donné à un avocat pour la conclusion de l'un des contrats mentionnés au premier alinéa de l'article L. 222-7 du code du sport, il est précisé le montant de ses honoraires, qui ne peuvent excéder 10 % du montant de ce contrat. Lorsque, pour la conclusion d'un tel contrat, plusieurs avocats interviennent ou un avocat intervient avec le concours d'un agent sportif, le montant total de leur rémunération ne peut excéder 10 % du montant de ce contrat. L'avocat agissant en qualité de mandataire de l'une des parties intéressées à la conclusion d'un tel contrat ne peut être rémunéré que par son client. »</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                            <em>Les facilités de paiement</em>
+                            <svg class="accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>En fonction de votre situation, le cabinet peut accepter le règlement des honoraires de manière échelonnée, en plusieurs mensualités.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                            <em>L'aide juridictionnelle</em>
+                            <svg class="accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Sous réserve d'acceptation de votre dossier par le cabinet, nous acceptons de travailler au titre de l'aide juridictionnelle.<br><br>
+                            Afin de déterminer si vous en bénéficiez, vous pouvez consulter le simulateur déterminant le taux de prise en charge à partir de ce lien :<br><br>
+                            <a href="https://www.aidejuridictionnelle.justice.fr/simulateur" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">https://www.aidejuridictionnelle.justice.fr/simulateur</a></p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                            <em>L'assurance protection juridique</em>
+                            <svg class="accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Nous vous conseillons également de vous rapprocher de votre assureur dans la mesure où certains contrats d'assurance proposent une garantie "protection juridique" qui prend en charge partiellement ou en totalité les honoraires d'avocat.<br><br>
+                            Nous vous informons que le client a toujours la liberté de choisir son avocat, qui ne peut en aucun cas être imposé par l'assureur selon les dispositions de l'article L 127-3 du code des assurances.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="about-image">
+                <img src="../Old/photo/AV6_6056.webp" alt="Nos honoraires">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section-alt">
+    <div class="container">
+        <div class="section-header">
+            <h2>Nous Contacter</h2>
+            <p>N'hésitez pas à nous contacter pour toute question ou demande de rendez-vous</p>
+        </div>
+
+        <div class="contact-grid">
+
+            <!-- Formulaire -->
+            <div class="card contact-form-card">
+                <div class="form-toggle">
+                    <button id="btnMaylis" class="active" onclick="switchForm('maylis')">Maître<br>Maylis Vincent</button>
+                    <button id="btnAmiel" class="inactive" onclick="switchForm('amiel')">Maître<br>Valérie Amiel</button>
+                </div>
+
+                <form id="formMaylis" action="https://formspree.io/f/meojyyej" method="POST" class="contact-form active">
+                    <div><label>Nom / Prénom</label><input type="text" name="name" placeholder="Nom / Prénom" required></div>
+                    <div><label>Téléphone</label><input type="text" name="telephone" placeholder="07 XX XX XX XX" required></div>
+                    <div><label>Adresse Email</label><input type="email" name="_replyto" placeholder="email@domaine.com" required></div>
+                    <div><label>Message</label><textarea rows="5" name="message" required></textarea></div>
+                    <input type="hidden" name="_subject" value="Contact du site Internet amiel-vincent-avocats.fr">
+                    <button type="submit" class="btn-submit">Envoyer</button>
+                </form>
+
+                <form id="formAmiel" action="https://formspree.io/f/movaggvq" method="POST" class="contact-form">
+                    <div><label>Nom / Prénom</label><input type="text" name="name" placeholder="Nom / Prénom" required></div>
+                    <div><label>Téléphone</label><input type="text" name="telephone" placeholder="07 XX XX XX XX" required></div>
+                    <div><label>Adresse Email</label><input type="email" name="_replyto" placeholder="email@domaine.com" required></div>
+                    <div><label>Message</label><textarea rows="5" name="message" required></textarea></div>
+                    <input type="hidden" name="_subject" value="Contact du site Internet amiel-vincent-avocats.fr">
+                    <button type="submit" class="btn-submit">Envoyer</button>
+                </form>
+            </div>
+
+            <!-- Infos -->
+            <div class="contact-info">
+                <div class="card info-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div>
+                        <h4>Adresse</h4>
+                        <p>12 bd Lazare Carnot<br>31000 Toulouse</p>
+                    </div>
+                </div>
+                <div class="card info-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.36 6.36l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div>
+                        <h4>Téléphone</h4>
+                        <p>05 61 25 34 91</p>
+                    </div>
+                </div>
+                <div class="card info-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div>
+                        <h4>Horaires</h4>
+                        <p>Sur rendez-vous</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+
+            <div>
+                <div class="footer-brand">
+                    <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    <h3>Amiel Vincent Avocats</h3>
+                </div>
+                <p class="footer-desc">Défense, Conseil et Accompagnement juridique</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a onclick="goTo('hero')">Accueil</a></li>
+                    <li><a onclick="goTo('about')">Nos Missions</a></li>
+                    <li><a onclick="goTo('expertises')">Notre Cabinet</a></li>
+                    <li><a onclick="goTo('honoraires')">Nos Honoraires</a></li>
+                    <li><a onclick="goTo('contact')">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>12 bd Lazare Carnot</li>
+                    <li>31000 Toulouse</li>
+                    <li>05 61 25 34 91</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 SCP Amiel-Vincent. Tous droits réservés | Made By <a href="https://bastien.sitetest.best">Bastien VILLEGAS.</a></p>
+            <p><a href="./politique.html" target="_blank" rel="noopener noreferrer">Politique de confidentialité</a> | <a href="./conditiongénérale.html" target="_blank" rel="noopener noreferrer">Conditions Générales</a></p>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    // Sticky header
+    window.addEventListener('scroll', function () {
+        document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile menu toggle
+    document.getElementById('menuToggle').addEventListener('click', function () {
+        const nav = document.getElementById('mobileNav');
+        const isOpen = nav.classList.toggle('open');
+        document.getElementById('iconMenu').style.display  = isOpen ? 'none'  : '';
+        document.getElementById('iconClose').style.display = isOpen ? ''      : 'none';
+    });
+
+    // Smooth scroll helper
+    function goTo(id) {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('mobileNav').classList.remove('open');
+        document.getElementById('iconMenu').style.display  = '';
+        document.getElementById('iconClose').style.display = 'none';
+    }
+
+    // Accordion honoraires
+    function toggleAccordion(btn) {
+        btn.closest('.accordion-item').classList.toggle('open');
+    }
+
+    // Contact form toggle
+    function switchForm(name) {
+        const isMaylis = name === 'maylis';
+        document.getElementById('btnMaylis').className  = isMaylis ? 'active' : 'inactive';
+        document.getElementById('btnAmiel').className   = isMaylis ? 'inactive' : 'active';
+        document.getElementById('formMaylis').classList.toggle('active', isMaylis);
+        document.getElementById('formAmiel').classList.toggle('active', !isMaylis);
+    }
+</script>
+
+</body>
+</html>
