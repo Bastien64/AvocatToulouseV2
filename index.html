@@ -219,6 +219,7 @@
             font-size: 0.9rem; color: var(--text); transition: border-color 0.2s; resize: vertical;
         }
         .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary); }
+        .hp-field { position: absolute; left: -9999px; top: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
         .btn-submit {
             width: 100%; padding: 0.875rem; background: var(--primary); color: #fff;
             border: none; border-radius: var(--radius); font-family: 'Inter', sans-serif;
@@ -637,6 +638,10 @@
                     <div><label>Adresse Email</label><input type="email" name="_replyto" placeholder="email@domaine.com" required></div>
                     <div><label>Message</label><textarea rows="5" name="message" required></textarea></div>
                     <input type="hidden" name="_subject" value="Contact du site Internet amiel-vincent-avocats.fr">
+                    <div class="hp-field" aria-hidden="true">
+                        <label>Ne pas remplir ce champ</label>
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                    </div>
                     <button type="submit" class="btn-submit">Envoyer</button>
                 </form>
 
@@ -646,6 +651,10 @@
                     <div><label>Adresse Email</label><input type="email" name="_replyto" placeholder="email@domaine.com" required></div>
                     <div><label>Message</label><textarea rows="5" name="message" required></textarea></div>
                     <input type="hidden" name="_subject" value="Contact du site Internet amiel-vincent-avocats.fr">
+                    <div class="hp-field" aria-hidden="true">
+                        <label>Ne pas remplir ce champ</label>
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                    </div>
                     <button type="submit" class="btn-submit">Envoyer</button>
                 </form>
             </div>
@@ -765,6 +774,26 @@
         document.getElementById('formMaylis').classList.toggle('active', isMaylis);
         document.getElementById('formAmiel').classList.toggle('active', !isMaylis);
     }
+
+    // Anti-spam : bloque les envois trop rapides (typiques des bots) et le honeypot
+    (function () {
+        const forms = [document.getElementById('formMaylis'), document.getElementById('formAmiel')];
+        const loadTime = Date.now();
+        forms.forEach(function (form) {
+            if (!form) return;
+            form.addEventListener('submit', function (e) {
+                const gotcha = form.querySelector('input[name="_gotcha"]');
+                if (gotcha && gotcha.value) {
+                    e.preventDefault();
+                    return;
+                }
+                if (Date.now() - loadTime < 3000) {
+                    e.preventDefault();
+                    alert("Formulaire envoyé trop rapidement, merci de réessayer.");
+                }
+            });
+        });
+    })();
 </script>
 
 </body>
